@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+void swap(int *x, int *y)
+{
+    int temp=*x;
+    *x=*y;
+    *y=temp;
+}
+
+void select(int a[],int n)
+{
+    int i,j,min;
+    for (i=0;i<n;i++)
+    {
+        min=i;
+        for (j=i+1;j<n;j++)
+        {
+            if(a[j]<a[min])
+            {
+                min=j;
+            }
+        }
+        if(min!=i)
+        {
+            swap(&a[min],&a[i]);
+        }
+    }
+    
+    
+}
+
+
+
+
+int main() {
+    int n, a[50];
+    printf("n value: ");
+    scanf("%d",&n);
+    printf("\nEnter array: ");
+    for (int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    select(a,n);
+    printf("sorted array: ");
+    for (int i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    return 0;
+}
